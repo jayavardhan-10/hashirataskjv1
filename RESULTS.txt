@@ -1,0 +1,39 @@
+HASHIRA PLACEMENTS ASSIGNMENT - FINAL RESULTS
+==============================================
+
+SOLUTION SUMMARY:
+- Language: Java
+- Algorithm: Shamir's Secret Sharing with Lagrange Interpolation
+- Purpose: Find the constant term (secret) of polynomial from encoded points
+
+RESULTS:
+--------
+
+TEST CASE 1 (roots.json):
+- n = 4, k = 3 (quadratic polynomial)
+- SECRET (CONSTANT TERM): 3
+
+TEST CASE 2 (testcase2.json):
+- n = 10, k = 7 (degree 6 polynomial)  
+- SECRET (CONSTANT TERM): -6290016743746469796
+
+VERIFICATION:
+- Both solutions verified against remaining points
+- All calculations use BigInteger for precision
+- Base conversions handled correctly for all bases (2-16)
+
+MATHEMATICAL APPROACH:
+1. Parse JSON to extract points with different bases
+2. Convert all y-values from their respective bases to decimal
+3. Use Lagrange interpolation to find f(0) = constant term
+4. Formula: f(0) = Σ(yi × Li(0)) where Li(0) = Π((0-xj)/(xi-xj))
+
+FILES SUBMITTED:
+- HashiraSecretSharing.java (detailed version)
+- HashiraCleanOutput.java (clean results)
+- roots.json (test case 1)
+- testcase2.json (test case 2)
+- README.md (documentation)
+- RESULTS.txt (this file)
+
+The solution successfully finds the secret values using polynomial reconstruction from the given encoded points.
